@@ -5,37 +5,41 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="jquery-ui.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
   <script src="script.js"></script>
-  <script src="jquery-ui.js"></script>
+  <script></script>
+  <title>To do list</title>
   <script>
     $(document).ready(function () {
-
+      $("#sectors").tabs()
+      $("ul").sortable({ axis: "x", containment: "#sectors" })
+      $("ol").sortable({ axis: "y", containment: "#sectors" })
     })
   </script>
-  <title>To do list</title>
 </head>
 
 <body>
   <div id="container">
     <h2>To Do List</h2>
-    <button>Add</button>
+    <!-- <button>Add</button>
     <button>Remove</button>
-    <button>Clear</button>
-    <div id="sectors"></div>
-    <ul id="sector-title">
-      <li><a href="#personal">Personal</a></li>
-      <li><a href="#work">Work</a></li>
-    </ul>
-    <ol id="personal">
-      <li><input type="checkbox">Task 1</li>
-      <li><input type="checkbox">Task 2</li>
-    </ol>
-    <ol id="work">
-      <li><input type="checkbox">Task 1</li>
-      <li><input type="checkbox">Task 2</li>
-    </ol>
-  </div>
+    <button>Clear</button> -->
+    <div id="sectors">
+      <ul id="sector-title">
+        <li><a href="#personal">Personal</a></li>
+        <li><a href="#work">Work</a></li>
+      </ul>
+      <ol id="personal">
+        <li><input type="checkbox">Task 1</li>
+        <li><input type="checkbox">Task 2</li>
+      </ol>
+      <ol id="work">
+        <li><input type="checkbox">Task 1</li>
+        <li><input type="checkbox">Task 2</li>
+      </ol>
+    </div>
 </body>
 
 </html>
