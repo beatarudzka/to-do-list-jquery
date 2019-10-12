@@ -26,6 +26,8 @@
                 const categoryName = $("#create-new-category").val()
                 $(" <li><a href='#" + categoryName + "'>" + categoryName + "</a></li>")
                   .appendTo("#sector-title")
+                $("<ol id='" + categoryName + "'></ol>").appendTo("#sectors")
+                $("#sectors").tabs('refresh')
                 $("#create-new-category").val("")
                 $(this).dialog("close")
               },
@@ -63,7 +65,7 @@
         <li><input type="checkbox">Task 2</li>
       </ol>
     </div>
-    <div class="new-category" style="display: none">
+    <div class="new-category" title="Add category" style="display: none">
       <label for="create-new-category">New category:</label>
       <input type="text" id="create-new-category">
     </div>
