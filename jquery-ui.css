@@ -3,14 +3,13 @@ body{
   background: url(mountains.jpg)
 }
 
-#container {
+#task-container {
   position: fixed;
   width: 70%;
   top:40%;
   left:50%;
   transform: translate(-50%, -50%);
   margin:70px auto;
-  padding: 20px;
   border: black 2px solid;
   background-color: rgb(221,229,237);
 
@@ -24,4 +23,13 @@ h2{
 ol li {
   cursor: pointer;
   list-style: none;
+}
+button{
+  display: block;
+  width: 80%;
+  margin: 5px;
+  height: 30%;
+  text-align: center;
+  background-color:grey;
+
 }
