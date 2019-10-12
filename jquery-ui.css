@@ -1,0 +1,27 @@
+body{
+  font-family: 'Times New Roman', Times, serif;;
+  background: url(mountains.jpg)
+}
+
+#container {
+  position: fixed;
+  width: 70%;
+  top:40%;
+  left:50%;
+  transform: translate(-50%, -50%);
+  margin:70px auto;
+  padding: 20px;
+  border: black 2px solid;
+  background-color: rgb(221,229,237);
+
+}
+
+h2{
+  text-align: center;
+  padding: 10px;
+}
+
+ol li {
+  cursor: pointer;
+  list-style: none;
+}
