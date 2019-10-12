@@ -28,6 +28,8 @@
                   .appendTo("#sector-title")
                 $("<ol id='" + categoryName + "'></ol>").appendTo("#sectors")
                 $("#sectors").tabs('refresh')
+                const tabCount = $("#sectors .ui-tabs-nav li").length
+                $("#sectors").tabs("option", "active", tabCount - 1)
                 $("#create-new-category").val("")
                 $(this).dialog("close")
               },
