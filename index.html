@@ -17,6 +17,25 @@
       $("#sectors").tabs()
       $("ul").sortable({ axis: "x", containment: "#sectors" })
       $("ol").sortable({ axis: "y", containment: "#sectors" })
+      $(".category").button()
+        .click(function () {
+          $(".new-category").dialog({
+            width: 400, resizable: false, modal: true,
+            buttons: {
+              "Add new category": function () {
+                const categoryName = $("#create-new-category").val()
+                $(" <li><a href='#" + categoryName + "'>" + categoryName + "</a></li>")
+                  .appendTo("#sector-title")
+                $("#create-new-category").val("")
+                $(this).dialog("close")
+              },
+              "Cancel": function () {
+                $("#create-new-category").val("")
+                $(this).dialog("close")
+              }
+            }
+          })
+        })
     })
   </script>
 </head>
@@ -43,6 +62,10 @@
         <li><input type="checkbox">Task 1</li>
         <li><input type="checkbox">Task 2</li>
       </ol>
+    </div>
+    <div class="new-category" style="display: none">
+      <label for="create-new-category">New category:</label>
+      <input type="text" id="create-new-category">
     </div>
 </body>
 
