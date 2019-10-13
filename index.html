@@ -18,6 +18,13 @@
       $("ul").sortable({ axis: "x", containment: "#sectors" })
       $("#sectors").tabs()
       $("ol").sortable({ axis: "y", containment: "#sectors" })
+      $("#sectors").on("click", "span.ui-icon-close", function () {
+        let index = $(this).closest("li").index()
+        let id = $("#sector-title li:eq(" + index + ") a").attr("href")
+        $("#sector-title li:eq(" + index + ")").remove()
+        $(id).remove()
+        $("#sectors").tabs("refresh")
+      })
       $(".clear").button()
         .click(function () {
           $("#sectors").tabs("refresh")
@@ -36,7 +43,7 @@
                 $("#sectors").tabs("refresh")
                 let activeTab = $("#sectors").tabs("option", "active")
                 let title = $("#sector-title > li:nth-child(" + (activeTab + 1) + ") > a").attr("href")
-                $("#sectors " + title).append(" <li>a" + $("#create-new-task").val() + "</li>")
+                $("#sectors " + title).append(" <li>" + $("#create-new-task").val() + "</li>")
                 $("#create-new-task").val("")
                 $(this).dialog("close")
               },
@@ -45,7 +52,6 @@
                 let activeTab = $("#sectors").tabs("option", "active")
                 let title = $("#sector-title > li:nth-child(" + (activeTab + 1) + ") > a").attr("href")
                 let task = $("#sectors " + title).append(" <li>" + "Task number: " + countTask + "</li>")
-                console.log(task)
                 $("#create-new-task").val("")
                 countTask = countTask + 1
                 $(this).dialog("close")
@@ -65,7 +71,7 @@
               "New": function () {
                 const categoryName = $("#create-new-category").val()
                 let replaceCategoryName = categoryName.split(" ").join("_")
-                $(" <li><a href='#" + replaceCategoryName + "'>" + replaceCategoryName + "</a></li>")
+                $(" <li><a href='#" + replaceCategoryName + "'>" + replaceCategoryName + "</a><span class='ui-icon ui-icon-close'></span></li>")
                   .appendTo("#sector-title")
                 $("<ol id='" + replaceCategoryName + "'></ol>").appendTo("#sectors")
                 $("#sectors").tabs('refresh')
@@ -96,8 +102,8 @@
   <div class="task-container">
     <div id="sectors">
       <ul id="sector-title">
-        <li><a href="#personal">Personal</a></li>
-        <li><a href="#work">Work</a></li>
+        <li><a href="#personal">Personal</a><span class="ui-icon ui-icon-close"></span></li>
+        <li><a href="#work">Work</a><span class="ui-icon ui-icon-close"></span></li>
       </ul>
       <ol id="personal">
       </ol>
