@@ -24,13 +24,14 @@
         })
       $(".remove").button()
         .click(function () {
-          console.log('button remove')
+          $("#sectors").tabs("refresh")
+          $('li', 'ol').last().remove()
         })
       $(".add").button()
         .click(function () {
           $(".new-task").dialog({
             width: 400, resizable: false, modal: true, buttons: {
-              "Add task": function () {
+              "Add task with content": function () {
                 $("#sectors").tabs("refresh")
                 let activeTab = $("#sectors").tabs("option", "active")
                 let title = $("#sector-title > li:nth-child(" + (activeTab + 1) + ") > a").attr("href")
@@ -38,7 +39,7 @@
                 $("#create-new-task").val("")
                 $(this).dialog("close")
               },
-              "Add next task": function () {
+              "Add task with next number": function () {
                 $("#sectors").tabs("refresh")
                 let activeTab = $("#sectors").tabs("option", "active")
                 let title = $("#sector-title > li:nth-child(" + (activeTab + 1) + ") > a").attr("href")
