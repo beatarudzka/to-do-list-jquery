@@ -42,6 +42,7 @@ ol li {
   padding: 5px;
   margin-bottom: 3px;
   background-color:#BECECA;
+  height: 2rem;
 }
 ol li:hover{
   background-color:#6A7471;
