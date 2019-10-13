@@ -18,11 +18,6 @@
       $("ul").sortable({ axis: "x", containment: "#sectors" })
       $("#sectors").tabs()
       $("ol").sortable({ axis: "y", containment: "#sectors" })
-      $("input[type=checkbox]").click(function () {
-        $(this).closest("li").slideUp(function () {
-          console.log(this)
-        })
-      })
       $(".clear").button()
         .click(function () {
           $("#sectors").tabs("refresh")
