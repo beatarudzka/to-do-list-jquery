@@ -22,11 +22,23 @@
         .click(function () {
           console.log('button clear')
         })
+      $(".remove").button()
+        .click(function () {
+          console.log('button remove')
+        })
       $(".add").button()
         .click(function () {
           $(".new-task").dialog({
             width: 400, resizable: false, modal: true, buttons: {
-              "New": function () {
+              "Add task": function () {
+                $("#sectors").tabs("refresh")
+                let activeTab = $("#sectors").tabs("option", "active")
+                let title = $("#sector-title > li:nth-child(" + (activeTab + 1) + ") > a").attr("href")
+                $("#sectors " + title).append(" <li><input type='checkbox'>" + $("#create-new-task").val() + "</li>")
+                $("#create-new-task").val("")
+                $(this).dialog("close")
+              },
+              "Add next task": function () {
                 $("#sectors").tabs("refresh")
                 let activeTab = $("#sectors").tabs("option", "active")
                 let title = $("#sector-title > li:nth-child(" + (activeTab + 1) + ") > a").attr("href")
