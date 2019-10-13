@@ -1,6 +1,6 @@
 # to-do-list-jquery
 
-<bold> To-do-list App created in Jquery on the recrutation <bold>
+<bold> To-do-list App created in Jquery <bold>
 =======
 Requirements:
 
