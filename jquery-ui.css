@@ -1,5 +1,5 @@
 body{
-  font-family: 'Times New Roman', Times, serif;;
+  font-family: 'Verdana','Arial','sans-serif';
   background: url(forest.jpg) no-repeat;
   background-attachment:fixed;
   background-position:center center;
@@ -8,27 +8,40 @@ body{
   margin: 0;
 }
 
-#task-container {
+.task-container {
   position: fixed;
-  min-width: 30%;
-  top:40%;
+  padding: 20px;
+  margin: 70px auto;
+  width: 80%;
+  top:60%;
   left:50%;
   transform: translate(-50%, -50%);
-  margin:70px auto;
-  border: black 2px solid;
-  background-color: rgb(221,229,237);
+  background-color:transparent;
+
 }
 
 h2{
   text-align: center;
   padding: 10px;
   color: white;
-  font-size: 2rem;
+  font-size: 3rem;
 }
 
+#sectors{
+  width: 80%;
+  height: 250px;
+  margin: 0px auto;
+  background-color:transparent;
+}
 ol li {
   cursor: pointer;
   list-style: none;
+  padding: 5px;
+  margin-bottom: 3px;
+  background-color:#BECECA;
+}
+ol li:hover{
+  background-color:#6A7471;
 }
 button{
   width: 70%;
@@ -43,5 +56,14 @@ button{
   flex-direction: column;
   flex-wrap: nowrap;
   align-items: center;
+
 }
 
+.ui-widget-header {
+  background:#BECECA;
+  color: black;
+}
+ .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default, .ui-button, html .ui-button.ui-state-disabled:hover, html .ui-button.ui-state-disabled:active {
+  background:#BECECA;
+  color: black;
+}
