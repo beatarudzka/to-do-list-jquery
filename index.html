@@ -18,6 +18,11 @@
       $("ul").sortable({ axis: "x", containment: "#sectors" })
       $("#sectors").tabs()
       $("ol").sortable({ axis: "y", containment: "#sectors" })
+      $("input[type=checkbox]").click(function () {
+        $(this).closest("li").slideUp(function () {
+          console.log(this)
+        })
+      })
       $(".clear").button()
         .click(function () {
           $("#sectors").tabs("refresh")
@@ -36,7 +41,7 @@
                 $("#sectors").tabs("refresh")
                 let activeTab = $("#sectors").tabs("option", "active")
                 let title = $("#sector-title > li:nth-child(" + (activeTab + 1) + ") > a").attr("href")
-                $("#sectors " + title).append(" <li><input type='checkbox'>" + $("#create-new-task").val() + "</li>")
+                $("#sectors " + title).append(" <li>a" + $("#create-new-task").val() + "</li>")
                 $("#create-new-task").val("")
                 $(this).dialog("close")
               },
@@ -44,7 +49,8 @@
                 $("#sectors").tabs("refresh")
                 let activeTab = $("#sectors").tabs("option", "active")
                 let title = $("#sector-title > li:nth-child(" + (activeTab + 1) + ") > a").attr("href")
-                $("#sectors " + title).append(" <li><input type='checkbox'>" + "Task number: " + countTask + "</li>")
+                let task = $("#sectors " + title).append(" <li>" + "Task number: " + countTask + "</li>")
+                console.log(task)
                 $("#create-new-task").val("")
                 countTask = countTask + 1
                 $(this).dialog("close")
