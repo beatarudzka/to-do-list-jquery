@@ -20,7 +20,8 @@
       $("ol").sortable({ axis: "y", containment: "#sectors" })
       $(".clear").button()
         .click(function () {
-          console.log('button clear')
+          $("#sectors").tabs("refresh")
+          $('li', 'ol').remove()
         })
       $(".remove").button()
         .click(function () {
