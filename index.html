@@ -27,7 +27,16 @@
           $(".new-task").dialog({
             width: 400, resizable: false, modal: true, buttons: {
               "New": function () {
-
+                $("#sectors").tabs("refresh")
+                let activeTab = $("#sectors").tabs("option", "active")
+                let title = $("#sector-title > li:nth-child(" + (activeTab + 1) + ") > a").attr("href")
+                $("#sectors " + title).append(" <li><input type='checkbox'>" + $("#create-new-task").val() + "</li>")
+                $("#create-new-task").val("")
+                $(this).dialog("close")
+              },
+              "Cancel": function () {
+                $("#create-new-task").val("")
+                $(this).dialog("close")
               }
             }
           })
@@ -45,7 +54,7 @@
                 $("#sectors").tabs('refresh')
                 const tabCount = $("#sectors .ui-tabs-nav li").length
                 $("#sectors").tabs("option", "active", tabCount - 1)
-                $("#create-new-category").val("")
+                $("#create-new-category").val()
                 $(this).dialog("close")
               },
               "Cancel": function () {
