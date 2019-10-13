@@ -48,9 +48,10 @@
             buttons: {
               "New": function () {
                 const categoryName = $("#create-new-category").val()
-                $(" <li><a href='#" + categoryName + "'>" + categoryName + "</a></li>")
+                let replaceCategoryName = categoryName.split(" ").join("_")
+                $(" <li><a href='#" + replaceCategoryName + "'>" + replaceCategoryName + "</a></li>")
                   .appendTo("#sector-title")
-                $("<ol id='" + categoryName + "'></ol>").appendTo("#sectors")
+                $("<ol id='" + replaceCategoryName + "'></ol>").appendTo("#sectors")
                 $("#sectors").tabs('refresh')
                 const tabCount = $("#sectors .ui-tabs-nav li").length
                 $("#sectors").tabs("option", "active", tabCount - 1)
