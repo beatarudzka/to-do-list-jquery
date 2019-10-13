@@ -13,16 +13,31 @@
   <script></script>
   <title>To do list</title>
   <script>
+    let count = $("#playlist").children().length;
     $(document).ready(function () {
       $("#sectors").tabs()
       $("ul").sortable({ axis: "x", containment: "#sectors" })
       $("ol").sortable({ axis: "y", containment: "#sectors" })
+      $(".clear").button()
+        .click(function () {
+          console.log('button clear')
+        })
+      $(".add").button()
+        .click(function () {
+          $(".new-task").dialog({
+            width: 400, resizable: false, modal: true, buttons: {
+              "New": function () {
+
+              }
+            }
+          })
+        })
       $(".category").button()
         .click(function () {
           $(".new-category").dialog({
             width: 400, resizable: false, modal: true,
             buttons: {
-              "Add new category": function () {
+              "New": function () {
                 const categoryName = $("#create-new-category").val()
                 $(" <li><a href='#" + categoryName + "'>" + categoryName + "</a></li>")
                   .appendTo("#sector-title")
@@ -46,13 +61,13 @@
 
 <body>
   <h2>To Do List</h2>
+  <div class="buttons">
+    <button class="add">Add</button>
+    <button class="remove">Remove</button>
+    <button class="clear">Clear</button>
+    <button class="category">New category</button>
+  </div>
   <div class="task-container">
-    <div>
-      <button class="category">New category</button>
-      <button class="add">Add</button>
-      <button class="remove">Remove</button>
-      <button class="clear">Clear</button>
-    </div>
     <div id="sectors">
       <ul id="sector-title">
         <li><a href="#personal">Personal</a></li>
@@ -70,6 +85,10 @@
     <div class="new-category" title="Add category" style="display: none">
       <label for="create-new-category">New category:</label>
       <input type="text" id="create-new-category">
+    </div>
+    <div class="new-task" title="Add task" style="display:none">
+      <label for="create-new-task">New task:</label>
+      <input type="text" id="create-new-task">
     </div>
 </body>
 
