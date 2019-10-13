@@ -13,10 +13,10 @@
   <script></script>
   <title>To do list</title>
   <script>
-    let count = $("#playlist").children().length;
+    let countTask = 1
     $(document).ready(function () {
-      $("#sectors").tabs()
       $("ul").sortable({ axis: "x", containment: "#sectors" })
+      $("#sectors").tabs()
       $("ol").sortable({ axis: "y", containment: "#sectors" })
       $(".clear").button()
         .click(function () {
@@ -30,8 +30,9 @@
                 $("#sectors").tabs("refresh")
                 let activeTab = $("#sectors").tabs("option", "active")
                 let title = $("#sector-title > li:nth-child(" + (activeTab + 1) + ") > a").attr("href")
-                $("#sectors " + title).append(" <li><input type='checkbox'>" + $("#create-new-task").val() + "</li>")
+                $("#sectors " + title).append(" <li><input type='checkbox'>" + "Task number: " + countTask + "</li>")
                 $("#create-new-task").val("")
+                countTask = countTask + 1
                 $(this).dialog("close")
               },
               "Cancel": function () {
@@ -84,12 +85,8 @@
         <li><a href="#work">Work</a></li>
       </ul>
       <ol id="personal">
-        <li><input type="checkbox">Task 1</li>
-        <li><input type="checkbox">Task 2</li>
       </ol>
       <ol id="work">
-        <li><input type="checkbox">Task 1</li>
-        <li><input type="checkbox">Task 2</li>
       </ol>
     </div>
     <div class="new-category" title="Add category" style="display: none">
