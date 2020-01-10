@@ -17,4 +17,5 @@ Requirements:
 In second option - "Add task with next number", creates new task with content: "Task number #". # means number of task.
 4. User can remove categories by "x" on the name of it.
 
+Link do wersji demo http://to-do-list-app.s3-website.eu-central-1.amazonaws.com/
 ---
